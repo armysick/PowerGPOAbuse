@@ -1762,10 +1762,10 @@ function Set-DomainObjectProperty {
 
             foreach ($property in $SET.Keys) {
 
-                Write-Verbose "[Set-DomainObjectProperty] Setting '$property' for $ObjectType $($Object.cn) -- $($property.GetType())"
+                Write-Verbose "[Set-DomainObjectProperty] Setting '$property' for $ObjectType $($Object.cn)"
                 if ($property -eq "versionNumber"){
                   Write-Verbose "[DEBUG] - Changing $($SET[$property]) to 2 on '$property' -- TYPE $($SET[$property].GetType())"
-                  $ADSIObject.Put($property, $SET[$property]) 
+                  $ADSIObject.Put($property, 2)
                 } else {
                     $ADSIObject.Put($property, $SET[$property]) 
                 }
