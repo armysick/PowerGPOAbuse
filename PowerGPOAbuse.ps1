@@ -3458,7 +3458,8 @@ function Add-GPOImmediateTask {
     
                     Write-Verbose "[Add-GPOImmediateTask] Modifying $path"
                     $content = Get-Content -Path $path
-                    $new_list = @()
+                    $helper_list = @()
+                    [System.Collections.ArrayList]$new_list = $helper_list
                     foreach ($line in $content) {
                         
                         if (($line -replace " ", "").Contains("</ScheduledTasks>")) {
