@@ -1755,8 +1755,13 @@ function Set-DomainObjectProperty {
             foreach ($property in $SET.Keys) {
                 
                 Write-Verbose "[Set-DomainObjectProperty] Setting '$property' for $ObjectType $($Object.cn)"
-                Write-Verbose "[DEBUG] - NO OW $($SET[$property])"
-                $ADSIObject.property += $SET[$property]
+                
+                if ($property -eq '1'){
+                  Write-Verbose "[DEBUG] - Changing $($SET[$property]) to 2 on '$property'"
+                  $ADSIObject.property += 2
+                } else {
+                    $ADSIObject.property += $SET[$property]
+                }
             }
         } else {
 
