@@ -1755,6 +1755,7 @@ function Set-DomainObjectProperty {
             foreach ($property in $SET.Keys) {
                 
                 Write-Verbose "[Set-DomainObjectProperty] Setting '$property' for $ObjectType $($Object.cn)"
+                Write-Verbose "[DEBUG] - NO OW $($SET[$property])"
                 $ADSIObject.property += $SET[$property]
             }
         } else {
@@ -1762,6 +1763,7 @@ function Set-DomainObjectProperty {
             foreach ($property in $SET.Keys) {
 
                 Write-Verbose "[Set-DomainObjectProperty] Setting '$property' for $ObjectType $($Object.cn)"
+                Write-Verbose "[DEBUG] - NO OW $($SET[$property])"
                 $ADSIObject.Put($property, $SET[$property]) 
             }
         }
